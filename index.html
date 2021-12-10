@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imagenes-responsive</title>
+<!-- Hoja de estilos -->
+    <style>
+        body{
+            background-color: aqua;
+        }
+        #portaFoto {
+            width: 50vw;
+            height: 50vh;
+            background-color: rgb(190, 0, 29);
+            display: block;
+            margin: auto;
+        }
+    
+        #laFoto {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1000px;
+        }
+    
+        /*  Con esto conseguimos que el portarretratos no sea mayor que la foto más grande
+            para evitar que se pixele */
+    
+        @media screen and (orientation:landscape) {
+            #portaFoto {
+                max-width: 1200px;
+                max-height: 800px;
+            }
+        }
+    
+        @media screen and (orientation:portrait) {
+            #portaFoto {
+                max-width: 600px;
+                max-height: 900px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="fotop">
+    <picture id="portaFoto">
+        <!-- imágenes GRANDES -->
+    
+        <source media="(orientation: landscape) and (min-width:1201px)" srcset="./Foto3/foto3(1920heic).heic" type="image/heic">
+        <source media="(orientation: landscape) and (min-width:1201px)" srcset="./Foto3/foto3(1920webp).webp" type="image/webp">
+        <source media="(orientation: landscape) and (min-width:1201px)" srcset="./Foto3/foto3(1920jpg).jpg" type="image/jpg">
+
+        <source media="(orientation: portrait) and (min-width: 801px)" srcset="./Fotos1/foto1(1200heic).heic" type="image/heic">
+        <source media="(orientation: portrait) and (min-width: 801px)" srcset="./Fotos1/foto1(1200webp).webp" type="image/webp">
+        <source media="(orientation: portrait) and (min-width: 801px)" srcset="./Fotos1/foto1(1200jpg).jpg" type="image/jpg">
+
+        <!-- imágenes MEDIANAS -->
+
+        <source media="(orientation: landscape) and (min-width: 601px)" srcset="./Foto4/foto4(800heic).heic" type="image/heic">
+        <source media="(orientation: landscape) and (min-width: 601px)" srcset="./Foto4/foto4(800webp).webp" type="image/webp">
+        <source media="(orientation: landscape) and (min-width: 601px)" srcset="./Foto4/foto4(800jpg).jpg" type="image/jpg">
+
+        <source media="(orientation: portrait) and (min-width:401px)" srcset="./Fotos2/foto2(600heic).heic" type="image/heic">
+        <source media="(orientation: portrait) and (min-width:401px)" srcset="./Fotos2/foto2(600webp).webp" type="image/webp">
+        <source media="(orientation: portrait) and (min-width:401px)" srcset="./Fotos2/foto2(600jpg).jpg" type="image/jpg">
+    
+        <img id="laFoto" alt="Foto de un paisaje" title="Un paisaje conocido" src="Fotos1/foto1(1920x1200).jpg" />
+    </picture>
+
+</div>
+</body>
+</html>
